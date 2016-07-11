@@ -1,19 +1,21 @@
 # put your code here.
-test_file = open("test.txt")
 
-words_list = []
-words_dict = {}
+def word_count(file_name):
+    test_file = open(file_name)
 
-for line in test_file:
-    line_list = line.rstrip().split(" ")
-    words_list = words_list + line_list
+    words_list = []
+    words_dict = {}
 
-test_file.close()
+    for line in test_file:
+        line_list = line.rstrip().split(" ")
+        words_list = words_list + line_list
 
-for word in words_list:
-    words_dict[word] = words_dict.get(word,0) + 1
+    test_file.close()
 
+    for word in words_list:
+        words_dict[word] = words_dict.get(word,0) + 1
 
-for words, count in words_dict.items():
-    print words, count
+    for words, count in words_dict.iteritems():
+        print words, count
 
+word_count("test.txt")
